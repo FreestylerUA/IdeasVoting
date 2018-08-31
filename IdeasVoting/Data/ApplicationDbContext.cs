@@ -15,6 +15,9 @@ namespace IdeasVoting.Data
         {
         }
 
+        public DbSet<IdeaStatus> IdeaStatuses { get; set; }
+        public DbSet<Idea> Ideas { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

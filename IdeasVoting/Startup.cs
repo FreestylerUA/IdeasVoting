@@ -40,8 +40,9 @@ namespace IdeasVoting
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ApplicationDbContext databaseContext)
         {
+            
             if (env.IsDevelopment())
             {
                 app.UseBrowserLink();
@@ -52,6 +53,8 @@ namespace IdeasVoting
             {
                 app.UseExceptionHandler("/Home/Error");
             }
+
+            databaseContext.Database.Migrate();
 
             app.UseStaticFiles();
 
